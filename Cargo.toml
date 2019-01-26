@@ -1,0 +1,10 @@
+[package]
+name = "rustpack"
+version = "0.1.0"
+authors = ["marior765 <d.bohatyrchuk@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+futures = "0.1"
+valico = "2"
+serde_json = "1.0"
