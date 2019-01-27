@@ -2,7 +2,7 @@
 extern crate valico;
 extern crate serde_json;
 
-pub mod declarations { include!("declarations/mod.rs"); }
+// pub mod declarations { include!("declarations/mod.rs"); }
 
 use valico::json_schema;
 use std::vec::Vec;
@@ -18,9 +18,11 @@ use std::fs::File;
 // pub fn validateSchema(&schema: Some(), &options: Some()) 
 // {
     
-// }
+// } 
+//options - js
+//schema - json
 
-pub fn validateObject<T>(schema: File, options: &declarations::RustpackOptions) -> Vec<T>
+pub fn validate_object<T>(schema: File, options: &Value) -> Vec<T>
 {
     let json_v4_schema: Value = serde_json::from_reader(schema).unwrap();
     let mut scope = json_schema::Scope::new();

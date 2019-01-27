@@ -1,0 +1,14 @@
+{
+    "bail": false,
+    "cache": true,
+    "context": "hyITA",
+    "dependencies": [
+        "react", 
+        "redux"
+    ],
+    "mode": "development",
+    "name": "HYITA",
+    "profile": false,
+    "recordsPath": "dist/",
+    "watch": true
+}
