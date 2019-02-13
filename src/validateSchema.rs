@@ -4,9 +4,9 @@ extern crate serde_json;
 
 // pub mod declarations { include!("declarations/mod.rs"); }
 
-use valico::json_schema;
+use valico::json_schema::Scope;
 use std::vec::Vec;
-use serde_json::Value;
+use serde_json::{Value, from_reader};
 use std::fs::File;
 
 // #![feature(core_intrinsics)]
@@ -24,8 +24,8 @@ use std::fs::File;
 
 pub fn validate_object<T>(schema: File, options: &Value) -> Vec<T>
 {
-    let json_v4_schema: Value = serde_json::from_reader(schema).unwrap();
-    let mut scope = json_schema::Scope::new();
+    let json_v4_schema: Value = from_reader(schema).unwrap();
+    let mut scope = Scope::new();
     let validate = scope.compile_and_return(json_v4_schema.clone(), false).unwrap();
     let valid = validate.validate(options).is_valid();
     if valid {

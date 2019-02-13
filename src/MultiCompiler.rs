@@ -4,6 +4,8 @@ use std::collections::HashSet;
 
 mod ConcurrentCompilationError;
 
+use ConcurrentCompilationError::ConcurrentCompilationError;
+
 pub impl MultiCompiler {
 
     fn new(&self, compilers: &Vec<String>) -> MultiCompiler {
@@ -94,7 +96,7 @@ pub impl MultiCompiler {
     
     fn run(&self, Fn()) -> Fn() {
         if (self.running) {
-            Fn(ConcurrentCompilationError::ConcurrentCompilationError::new())
+            Fn(ConcurrentCompilationError::new())
         }
 
         let finalCallback = |err, stats| {
