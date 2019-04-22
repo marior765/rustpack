@@ -25,16 +25,16 @@ pub impl MultiCompiler {
         self.running = false;
     }
 
-    fn outputPath(&self) -> String {
-        let mut commonPath: String = self.compilers[0].outputPath;
+    fn output_path(&self) -> String {
+        let mut common_path: String = self.compilers[0].output_path;
         for compiler in 0..self.compilers.len() {
             while (
-                self.compilers[compiler].outputPath.iter().position(
-                    |&s| s == commonPath
+                self.compilers[compiler].output_path.iter().position(
+                    |&s| s == common_path
                 ) !== 0 &&
-                /[/\\]/.test(commonPath)
+                /[/\\]/.test(common_path)
             ) {
-                commonPath = commonPath.replace(/[/\\][^/\\]*$/, "");
+                common_path = common_path.replace(/[/\\][^/\\]*$/, "");
             }
         }
         commonPath
